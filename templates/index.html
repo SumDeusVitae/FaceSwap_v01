@@ -7,48 +7,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>File Upload Example</title>
     <style>
-        .ok {
-
-            font-size: 1.5em;
-            text-align: center;
-            margin-bottom: 5%;
-            margin-top: 2%
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
 
-        .op {
-            font-size: 1.5em;
-            font-weight: bold;
-            background-color: greenyellow;
-            border-radius: 5px;
-            cursor: pointer;
+        .container {
+            background: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            width: 100%;
+            max-width: 500px;
+            padding: 20px;
             text-align: center;
-            margin-top: 2%;
+        }
+
+        h1 {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 1.1em;
+            display: block;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        input[type="file"] {
+            margin-bottom: 20px;
+            font-size: 1em;
+            padding: 5px;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            margin-top: 30px;
+        }
+
+        .result h3 {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .result img {
+            max-width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
         }
     </style>
 </head>
 
 <body>
-    <div class="ok">
+    <div class="container">
+        <h1>Upload Your Files</h1>
         <form method="POST" action="/" enctype="multipart/form-data">
             <div>
-                <div><label for="file1">Target image</label>
-                    <input type="file" name="file1">
-                </div>
-                <div>
-                    <label for="file2">Face image</label>
-                    <input type="file" name="file2">
-                </div>
+                <label for="file1">Target Image</label>
+                <input type="file" name="file1" id="file1" required>
             </div>
             <div>
-                <button class="op">Submit</button>
+                <label for="file2">Face Image</label>
+                <input type="file" name="file2" id="file2" required>
             </div>
-        </form>{%if result%}
-        <div>
-            <h3>Last Result</h2>
-                <img src="{{result}}" alt="Result_Image">
-        </div>{%endif%}
+            <button class="button" type="submit">Submit</button>
+        </form>
+        {% if result %}
+        <div class="result">
+            <h3>Result</h3>
+            <img src="{{result}}" alt="Result Image">
+        </div>
+        {% endif %}
     </div>
-
 </body>
 
 </html>
