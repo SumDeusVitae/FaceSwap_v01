@@ -17,7 +17,7 @@
 ### Install Dependencies
 Install the required Python libraries:
 ```bash
-pip install flask matplotlib opencv-python-headless insightface
+pip install flask matplotlib opencv-python-headless insightface onnxruntime-gpu
 ```
 
 ## Running the Application
@@ -40,9 +40,12 @@ The server will start on `http://localhost:5000`.
 Open your browser and navigate to [http://localhost:5000](http://localhost:5000). 
 
 ### 4. Use the Application
-1. Upload a **background image** (where the face will be swapped) and a **face image** (the face to swap).
+1. Select **Target image** (where the face will be swapped) and a **face image** (the face to swap).
 2. Submit the form.
 3. View the result image displayed on the page.
+
+## Demo
+![Swapped Face](res.png)
 
 ## File Structure
 ```
